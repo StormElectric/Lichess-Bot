@@ -1,4 +1,4 @@
-token: "lip_JnmGQ5cLViaBcjs8niDb"    # Lichess OAuth2 Token.
+token: "lip_jD4a1uFGdgfPv3TK6aZr"    # Lichess OAuth2 Token.
 url: "https://lichess.org/"  # Lichess base URL.
 
 engine:                      # Engine settings.
@@ -61,7 +61,7 @@ correspondence:
 challenge:                   # Incoming challenges.
   concurrency: 1             # Number of games to play simultaneously.
   sort_by: "best"            # Possible values: "best" and "first".
-  accept_bot: false          # Accepts challenges coming from other bots.
+  accept_bot: true           # Accepts challenges coming from other bots.
   only_bot: false            # Accept challenges by bots only.
   max_increment: 0         # Maximum amount of increment to accept a challenge. The max is 180. Set to 0 for no increment.
   min_increment: 0           # Minimum amount of increment to accept a challenge.
@@ -79,11 +79,20 @@ challenge:                   # Incoming challenges.
     - racingKings
     - threeCheck
   time_controls:             # Time controls to accept.
-#   - bullet
+    - bullet
     - blitz
     - rapid
-#   - classical
+    - classical
 #   - correspondence
   modes:                     # Game modes to accept.
     - casual                 # Unrated games.
     - rated                  # Rated games - must comment if the engine doesn't try to win.
+    greeting:
+  # Optional substitution keywords (include curly braces):
+  #   {opponent} to insert opponent's name
+  #   {me} to insert bot's name
+  # Any other words in curly braces will be removed.
+  hello: "Hi! I'm {me}. Good luck! Type !help for a list of commands I can respond to." # Message to send to opponent chat at the start of a game
+  goodbye: "Good game!" # Message to send to opponent chat at the end of a game
+  hello_spectators: "Hi! I'm {me}. Type !help for a list of commands I can respond to." # Message to send to spectator chat at the start of a game
+  goodbye_spectators: "Thanks for watching!" # Message to send to spectator chat at the end of a gam
